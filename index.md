@@ -3,16 +3,16 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  name: "遗忘之地"
+  text: "主页"
+  tagline: 这儿比冰箱还冷
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: 没想好
+      link: /
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: 没想好
+      link: /
 
 features:
   - title: Feature A
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
