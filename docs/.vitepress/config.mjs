@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from "vitepress-sidebar";  
+import { generateSidebar } from "vitepress-sidebar"
 
 const vitepressSidebarOptions = {  
   documentRootPath: '/docs',  
@@ -12,6 +12,7 @@ const vitepressSidebarOptions = {
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     markdown:{
+
       // 代码块行号显示
     lineNumbers: true,
       // 图片懒加载
