@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from "vitepress-sidebar"
+
 
 const vitepressSidebarOptions = {  
   documentRootPath: '/docs',  
@@ -12,7 +12,6 @@ const vitepressSidebarOptions = {
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     markdown:{
-
       // 代码块行号显示
     lineNumbers: true,
       // 图片懒加载
@@ -22,12 +21,16 @@ export default defineConfig({
       },
       codeCopyButtonTitle: '复制',
       },
+
   title: "忧的主页",
   description: "主页",
+  head: [['link', { rel: 'icon', href: '/.vitepress/public/favicon.ico' }]],
+    vite: {
+    publicDir: './public/'
+    },
   srcDir: "",//等下需要新建一个目录，统一放这里
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-        sidebar: generateSidebar(vitepressSidebarOptions),  
     nav: [
       { text: '首页', link: '/' },
       { text: '空调', link: '/airconditioner' },
@@ -35,11 +38,12 @@ export default defineConfig({
     ],
 
     sidebar: [
+      // VitePress Sidebar 的输出
       {
-        text: 'Examples',
+        text: 'Guide',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Introduction', link: '/introduction' },
+          { text: 'Getting Started', link: '/getting-started' }
         ]
       }
     ],
@@ -58,3 +62,5 @@ export default defineConfig({
 
   
 })
+
+
