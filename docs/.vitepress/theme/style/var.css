@@ -1,14 +1,14 @@
 /* var.css */
 :root {
-  --vp-c-brand-1: #18794e;
-  --vp-c-brand-2: #299764;
-  --vp-c-brand-3: #30a46c;
+  --vp-c-brand-1: #8C1740;
+  --vp-c-brand-2: #981F3B;
+  --vp-c-brand-3: #A52240;
 }
 
 .dark {
-  --vp-c-brand-1: #3dd68c;
-  --vp-c-brand-2: #30a46c;
-  --vp-c-brand-3: #298459;
+  --vp-c-brand-1: #CF2A51;
+  --vp-c-brand-2: #B62547;
+  --vp-c-brand-3: #8C1740;
 }
 /* 以前的vp-c-brand已弃用 */
 
@@ -17,15 +17,15 @@
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: -webkit-linear-gradient(
     120deg,
-    #bd34fe,
-    #41d1ff
+    #B62547,
+    #BA36A4
   );
 
   /*hero logo背景渐变色 */
   --vp-home-hero-image-background-image: linear-gradient(
     -45deg,
-    #bd34fe 50%,
-    #47caff 50%
+    #C3284C 50%,
+    #CA49B5 50%
   );
   --vp-home-hero-image-filter: blur(40px);
 }
