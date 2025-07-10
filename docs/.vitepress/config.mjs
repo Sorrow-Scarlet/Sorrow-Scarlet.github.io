@@ -11,6 +11,16 @@ const vitepressSidebarOptions = {
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+    markdown:{
+      // 代码块行号显示
+    lineNumbers: true,
+      // 图片懒加载
+    image: {
+      lazyLoading: true,
+       // 代码框内复制按钮的 title 提示
+      },
+      codeCopyButtonTitle: '复制',
+      },
   title: "忧的主页",
   description: "主页",
   srcDir: "",//等下需要新建一个目录，统一放这里
@@ -35,6 +45,15 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Sorrow-Scarlet' },
+      {
+        icon: 
+        {
+          svg: '',
+        },
+        link: "https://bilibili.com"
+      }
     ]
   }
+
+  
 })
