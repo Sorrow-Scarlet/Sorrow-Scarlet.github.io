@@ -1,5 +1,4 @@
-# 本主页已安装空调
-
+# 空调
 
 <div style="position: relative; width: 100%; 
     padding-top: calc(100% * 1920 / 1080); 

@@ -3,6 +3,9 @@
 layout: home
 
 hero:
+  image:
+    src: /logo.png
+    alt: /favicon.ico
   name: "遗失摇篮曲"
   text: "Lost Lullaby"
   tagline: 这地方比冰箱还冷
