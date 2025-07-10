@@ -3,23 +3,23 @@
 layout: home
 
 hero:
-  name: "遗忘的摇篮曲"
-  text: "Forgotten Lullaby"
-  tagline: 这玩应比冰箱还冷
+  name: "遗失摇篮曲"
+  text: "Lost Lullaby"
+  tagline: 这地方比冰箱还冷
   actions:
     - theme: brand
       text: 前往Test页
-      link: /test
+      link: /测试页面/test
     - theme: alt
       text: 前往Construction
-      link: /construction
+      link: /测试页面/construction
 
 features:
-  - title: 下一步计划
-    details: 待定
-  - title: 建设中的项目
+  - title: 计划中
+    details: 添加更多icon,添加主图背景，嵌入更多小玩应
+  - title: 建设中
+    details: 主图
+  - title: 已完成
     details: 文档分类
-  - title: 最新消息
-    details: 空调成功安装，配色改好了
 ---
 <DataPanel />
