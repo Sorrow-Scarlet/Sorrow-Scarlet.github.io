@@ -24,8 +24,8 @@
   /*hero logo背景渐变色 */
   --vp-home-hero-image-background-image: linear-gradient(
     120deg,
-    #C3284C 50%,
-    #CA49B5 50%
+    #EAC6CB 50%,
+    #F2D6FC 50%
   );
   --vp-home-hero-image-filter: blur(40px);
 }
