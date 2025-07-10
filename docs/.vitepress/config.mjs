@@ -3,19 +3,20 @@ import { generateSidebar } from 'vitepress-sidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-    markdown:{
-      // 代码块行号显示
-    lineNumbers: true,
-      // 图片懒加载
-    image: {
-      lazyLoading: true,
-       // 代码框内复制按钮的 title 提示
+  markdown:{
+    // 代码块行号显示
+  lineNumbers: true,
+    // 图片懒加载
+  image: {
+    lazyLoading: true,
+      // 代码框内复制按钮的 title 提示
       },
-      codeCopyButtonTitle: '复制',
+    codeCopyButtonTitle: '复制',
       },
-
+  
   title: "忧的主页",
   description: "主页",
+  lang: 'zh-Hans',
   head: [['link', { rel: 'icon', href: '/.vitepress/public/favicon.ico' }]],
     vite: {
     publicDir: './public/'
@@ -23,7 +24,22 @@ export default defineConfig({
   srcDir: "",//等下需要新建一个目录，统一放这里
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-
+    externalLinkIcon: true,
+    langMenuLabel: '切换语言',
+    darkModeSwitchLabel: "深色模式",
+    docFooter: {
+      prev: "上一篇", //Next page
+      next: "下一篇", //Previous page
+    },
+    outlineTitle: "页面内容",
+    returnToTopLabel: "返回顶部",
+    sidebarMenuLabel: "菜单",
+    logo: "/logo.png",
+    notFound: {
+      title: "页面未找到",
+      quote: "哎呀，您好像迷失在网络的小胡同里啦，别着急，赶紧回头是岸！",
+      linkText: "返回主页",
+  },
     sidebar: generateSidebar({
       // VitePress Sidebar's options here...
           // 侧边栏的根目录，默认为docs
