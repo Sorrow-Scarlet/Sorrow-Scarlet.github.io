@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: "遗忘之地"
-  text: "主页"
-  tagline: 这儿比冰箱还冷
+  name: "遗忘的摇篮曲"
+  text: "Forgotten Lullaby"
+  tagline: 这玩应比冰箱还冷
   actions:
     - theme: brand
       text: 没想好
@@ -15,11 +15,11 @@ hero:
       link: /
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 建设中
+    details: 毛玻璃已添加
+  - title: 建设中
+    details: 正在尝试vitepress内嵌html
+  - title: 建设中
+    details: 配色方案待定
 ---
 <DataPanel />
