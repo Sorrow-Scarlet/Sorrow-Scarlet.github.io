@@ -24,5 +24,7 @@ features:
     details: 主图
   - title: 已完成
     details: 文档分类
+  - title: 对联
+    details: “优化网站流畅度，提高网站稳定性”
 ---
 <DataPanel />
