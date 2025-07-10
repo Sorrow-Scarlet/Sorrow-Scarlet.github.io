@@ -19,12 +19,12 @@ hero:
 
 features:
   - title: 计划中
-    details: 添加更多icon,添加主图背景，嵌入更多小玩应
+    details: 添加更多icon，嵌入更多小玩应
   - title: 建设中
-    details: 主图
+    details: 添加更多icon
   - title: 已完成
-    details: 文档分类
+    details: 主图
   - title: 对联
-    details: “优化网站流畅度，提高网站稳定性”
+    details: 优化网站流畅度，提高网站稳定性
 ---
 <DataPanel />
