@@ -1,13 +1,5 @@
 import { defineConfig } from 'vitepress'
-
-
-const vitepressSidebarOptions = {  
-  documentRootPath: '/docs',  
-  collapsed: false, //折叠组关闭
-  collapseDepth: 2, //折叠组2级菜单
-  removePrefixAfterOrdering: true, //删除前缀，必须与prefixSeparator一起使用
-  prefixSeparator: "_", //删除前缀的符号
-};  
+import { generateSidebar } from 'vitepress-sidebar';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -31,21 +23,28 @@ export default defineConfig({
   srcDir: "",//等下需要新建一个目录，统一放这里
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+
+    sidebar: generateSidebar({
+      // VitePress Sidebar's options here...
+          // 侧边栏的根目录，默认为docs
+      documentRootPath: "/docs",
+      // 使用h1的标题作为侧边栏的标题
+      useTitleFromFileHeading: true,
+      // 使用文件夹的index.md
+      useFolderTitleFromIndexFile: true,
+      // 指向文件夹的链接
+      useFolderLinkFromIndexFile: true,
+      // 根据md文件的order进行排序
+      sortMenusByFrontmatterOrder: true,
+      // 排序之后将不是文件夹的放后面
+      sortFolderTo: "top",
+      // 菜单展开功能
+      collapsed: false,
+    }),
+
     nav: [
       { text: '首页', link: '/' },
-      { text: '空调', link: '/airconditioner' },
-      { text: 'Examples', link: '/markdown-examples' }
-    ],
-
-    sidebar: [
-      // VitePress Sidebar 的输出
-      {
-        text: 'Guide',
-        items: [
-          { text: 'Introduction', link: '/introduction' },
-          { text: 'Getting Started', link: '/getting-started' }
-        ]
-      }
+      { text: '空调', link: '/新奇小玩应/airconditioner' }
     ],
 
     socialLinks: [
