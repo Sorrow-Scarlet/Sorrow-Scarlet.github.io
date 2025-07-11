@@ -23,6 +23,8 @@ VitePress <Badge type="warning" text="beta" />
 
 VitePress <Badge type="danger" text="caution" />  
 
+### Title <Badge type="info">custom element</Badge>
+
 > 这是一个引用 `VitePress`
 
 ## 比示例中更好的提示容器
