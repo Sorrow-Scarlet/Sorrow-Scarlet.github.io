@@ -19,7 +19,6 @@
     "vitepress-sidebar": "^1.32.1"
   },
   "dependencies": {
-    "@iminu/vitepress-plugin-auto-sidebar": "^1.0.3",
-    "amu-ui": "^1.1.0"
+    "@iminu/vitepress-plugin-auto-sidebar": "^1.0.3"
   }
 }

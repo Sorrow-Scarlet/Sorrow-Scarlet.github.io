@@ -82,7 +82,7 @@
 :::
 
 <script setup>
-import { AButton } from 'amu-ui'
+//导入按钮
 
 // 复制排序后的参考文献列表到剪贴板
 function copyText() {
