@@ -98,3 +98,9 @@ pnpm -v
 yarn -v
 ```
 :::
+
+
+# 参考文档
+https://vitepress.dev/zh/reference/default-theme-home-page  
+https://aiyo.space/VPDocs/%E6%A0%B7%E5%BC%8F%E7%BE%8E%E5%8C%96.html  
+https://vitejs.cn/vitepress/guide/markdown.html#%E5%86%85%E9%83%A8%E9%93%BE%E6%8E%A5
