@@ -6,7 +6,8 @@ import { useRoute } from 'vitepress';
 import { inBrowser } from "vitepress";
 import busuanzi from "busuanzi.pure.js";
 import DataPanel from "./components/DataPanel.vue";
-
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
 
 export default {
@@ -28,13 +29,14 @@ export default {
 
 
 
-  enhanceApp({ app, router }) {
+  enhanceApp({ app, router, sitedata }) {
     app.component("DataPanel", DataPanel);//注册全局组件
     if (inBrowser) {
       router.onAfterRouteChanged = () => {
         busuanzi.fetch();
       };
     }
+    app.use(ElementPlus);
   },
 
 };
