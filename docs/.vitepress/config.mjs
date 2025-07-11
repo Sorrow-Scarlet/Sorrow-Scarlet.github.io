@@ -17,15 +17,21 @@ export default defineConfig({
   title: "忧的主页",
   description: "主页",
   lang: 'zh-Hans',
-  head: [['link', { rel: 'icon', href: '/.vitepress/public/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: 'favicon.ico' }]],
     vite: {
     publicDir: './public/'
     },
   srcDir: "",//等下需要新建一个目录，统一放这里
   // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
   lastUpdated: true, // string | boolean
+  ignoreDeadLinks: true, //忽略死链查询，即文档中嵌入的一些链接无法访问也不会导致站点报错
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+
+    search: 
+    {
+      provider: "local", //启用vitepress本身的搜索
+    },
     lastUpdatedText: "最后更新", // string
     externalLinkIcon: true,
     langMenuLabel: '切换语言',
@@ -80,12 +86,7 @@ export default defineConfig({
       message: '许可协议<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io/blob/main/LICENSE">GPL-V3',
       copyright: 'Copyright © 2025 幻梦·忧',
     }
-
-
-
   }
-
-  
 })
 
 
