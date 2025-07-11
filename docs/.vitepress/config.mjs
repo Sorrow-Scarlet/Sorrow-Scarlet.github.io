@@ -22,8 +22,11 @@ export default defineConfig({
     publicDir: './public/'
     },
   srcDir: "",//等下需要新建一个目录，统一放这里
+  // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
+  lastUpdated: true, // string | boolean
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    lastUpdatedText: "最后更新", // string
     externalLinkIcon: true,
     langMenuLabel: '切换语言',
     darkModeSwitchLabel: "深色模式",
@@ -72,7 +75,14 @@ export default defineConfig({
         },
         link: "https://space.bilibili.com/47130830"
       }
-    ]
+    ],
+        footer: {
+      message: '基于GPL-V3许可发布',
+      copyright: 'Copyright © 2025 Sorrow-Scarlet',
+    }
+
+
+
   }
 
   
