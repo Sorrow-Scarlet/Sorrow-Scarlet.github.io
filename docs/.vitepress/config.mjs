@@ -77,8 +77,8 @@ export default defineConfig({
       }
     ],
         footer: {
-      message: '基于GPL-V3许可发布',
-      copyright: 'Copyright © 2025 Sorrow-Scarlet',
+      message: '许可协议<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io/blob/main/LICENSE">GPL-V3',
+      copyright: 'Copyright © 2025 幻梦·忧',
     }
 
 
