@@ -19,9 +19,9 @@ hero:
 
 features:
   - title: 计划中
-    details: 添加更多icon，嵌入更多小玩应
+    details: 添加更多icon，嵌入更多小玩应，完善readme
   - title: 建设中
-    details: 添加更多icon
+    details: 添加更多icon，主页修改
   - title: 已完成
     details: 主图
   - title: 对联
