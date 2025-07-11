@@ -13,7 +13,7 @@ export default defineConfig({
       },
     codeCopyButtonTitle: '复制',
       },
-  
+  cleanUrls: true,
   title: "忧的主页",
   description: "主页",
   lang: 'zh-Hans',
