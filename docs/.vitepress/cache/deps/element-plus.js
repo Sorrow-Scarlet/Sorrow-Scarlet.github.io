@@ -725,7 +725,7 @@ var require_isSameOrBefore = __commonJS({
 });
 
 // node_modules/element-plus/es/version.mjs
-var version = "2.10.3";
+var version = "2.10.4";
 
 // node_modules/element-plus/es/constants/key.mjs
 var INSTALLED_KEY = Symbol("INSTALLED_KEY");
@@ -10408,6 +10408,16 @@ var _sfc_main = defineComponent({
         fixed.value = windowHeight.value - offset3 < rootBottom.value;
       }
     };
+    const updateRootRect = async () => {
+      if (!fixed.value) {
+        updateRoot();
+        return;
+      }
+      fixed.value = false;
+      await nextTick();
+      updateRoot();
+      fixed.value = true;
+    };
     const handleScroll2 = async () => {
       updateRoot();
       await nextTick();
@@ -10433,7 +10443,7 @@ var _sfc_main = defineComponent({
     watchEffect(update2);
     expose({
       update: update2,
-      updateRoot
+      updateRoot: updateRootRect
     });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", {
@@ -16834,7 +16844,7 @@ var _sfc_main5 = defineComponent({
 });
 var Thumb = _export_sfc(_sfc_main5, [["__file", "thumb.vue"]]);
 
-// node_modules/element-plus/es/components/scrollbar/src/bar2.mjs
+// node_modules/element-plus/es/components/scrollbar/src/bar.mjs
 var barProps = buildProps({
   always: {
     type: Boolean,
@@ -16846,7 +16856,7 @@ var barProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/scrollbar/src/bar.mjs
+// node_modules/element-plus/es/components/scrollbar/src/bar2.mjs
 var _sfc_main6 = defineComponent({
   __name: "bar",
   props: barProps,
@@ -16917,10 +16927,7 @@ var scrollbarProps = buildProps({
     type: [String, Number],
     default: ""
   },
-  native: {
-    type: Boolean,
-    default: false
-  },
+  native: Boolean,
   wrapStyle: {
     type: definePropType([String, Object, Array]),
     default: ""
@@ -17233,7 +17240,7 @@ var _sfc_main9 = defineComponent({
 });
 var ElPopperArrow = _export_sfc(_sfc_main9, [["__file", "arrow.vue"]]);
 
-// node_modules/element-plus/es/components/popper/src/trigger.mjs
+// node_modules/element-plus/es/components/popper/src/trigger2.mjs
 var popperTriggerProps = buildProps({
   virtualRef: {
     type: definePropType(Object)
@@ -17347,7 +17354,7 @@ function wrapTextContent(s2) {
   }, [s2]);
 }
 
-// node_modules/element-plus/es/components/popper/src/trigger2.mjs
+// node_modules/element-plus/es/components/popper/src/trigger.mjs
 var __default__8 = defineComponent({
   name: "ElPopperTrigger",
   inheritAttrs: false
@@ -18546,14 +18553,8 @@ var popperContentProps = buildProps({
     default: true
   },
   pure: Boolean,
-  focusOnShow: {
-    type: Boolean,
-    default: false
-  },
-  trapping: {
-    type: Boolean,
-    default: false
-  },
+  focusOnShow: Boolean,
+  trapping: Boolean,
   popperClass: {
     type: definePropType([String, Array, Object])
   },
@@ -19015,7 +19016,7 @@ var teleportProps = buildProps({
   disabled: Boolean
 });
 
-// node_modules/element-plus/es/components/tooltip/src/content2.mjs
+// node_modules/element-plus/es/components/tooltip/src/content.mjs
 var useTooltipContentProps = buildProps({
   ...useDelayedToggleProps,
   ...popperContentProps,
@@ -19354,7 +19355,7 @@ var usePopperContainer = () => {
   };
 };
 
-// node_modules/element-plus/es/components/tooltip/src/content.mjs
+// node_modules/element-plus/es/components/tooltip/src/content2.mjs
 var __default__11 = defineComponent({
   name: "ElTooltipContent",
   inheritAttrs: false
@@ -19741,24 +19742,12 @@ var autocompleteProps = buildProps({
     type: Boolean,
     default: true
   },
-  selectWhenUnmatched: {
-    type: Boolean,
-    default: false
-  },
-  hideLoading: {
-    type: Boolean,
-    default: false
-  },
+  selectWhenUnmatched: Boolean,
+  hideLoading: Boolean,
   teleported: useTooltipContentProps.teleported,
   appendTo: useTooltipContentProps.appendTo,
-  highlightFirstItem: {
-    type: Boolean,
-    default: false
-  },
-  fitInputWidth: {
-    type: Boolean,
-    default: false
-  }
+  highlightFirstItem: Boolean,
+  fitInputWidth: Boolean
 });
 var autocompleteEmits = {
   [UPDATE_MODEL_EVENT]: (value) => isString(value),
@@ -24015,12 +24004,12 @@ var _sfc_main33 = defineComponent({
 });
 var Radio = _export_sfc(_sfc_main33, [["__file", "radio.vue"]]);
 
-// node_modules/element-plus/es/components/radio/src/radio-button.mjs
+// node_modules/element-plus/es/components/radio/src/radio-button2.mjs
 var radioButtonProps = buildProps({
   ...radioPropsBase
 });
 
-// node_modules/element-plus/es/components/radio/src/radio-button2.mjs
+// node_modules/element-plus/es/components/radio/src/radio-button.mjs
 var __default__30 = defineComponent({
   name: "ElRadioButton"
 });
@@ -24881,7 +24870,7 @@ var _sfc_main38 = defineComponent({
     const getFlattedNodes = (leafOnly) => store == null ? void 0 : store.getFlattedNodes(leafOnly);
     const getCheckedNodes = (leafOnly) => {
       var _a2;
-      return (_a2 = getFlattedNodes(leafOnly)) == null ? void 0 : _a2.filter(({ checked }) => checked);
+      return (_a2 = getFlattedNodes(leafOnly)) == null ? void 0 : _a2.filter(({ checked }) => checked !== false);
     };
     const clearCheckedNodes = () => {
       checkedNodes.value.forEach((node) => node.doCheck(false));
@@ -25178,7 +25167,7 @@ var Tag = _export_sfc(_sfc_main39, [["__file", "tag.vue"]]);
 // node_modules/element-plus/es/components/tag/index.mjs
 var ElTag = withInstall(Tag);
 
-// node_modules/element-plus/es/components/cascader/src/cascader2.mjs
+// node_modules/element-plus/es/components/cascader/src/cascader.mjs
 var cascaderProps = buildProps({
   ...CommonProps,
   size: useSizeProp,
@@ -25203,10 +25192,7 @@ var cascaderProps = buildProps({
     type: Number,
     default: 1
   },
-  collapseTagsTooltip: {
-    type: Boolean,
-    default: false
-  },
+  collapseTagsTooltip: Boolean,
   maxCollapseTagsTooltipHeight: {
     type: [String, Number]
   },
@@ -25326,7 +25312,7 @@ var ClickOutside = {
   }
 };
 
-// node_modules/element-plus/es/components/cascader/src/cascader.mjs
+// node_modules/element-plus/es/components/cascader/src/cascader2.mjs
 var COMPONENT_NAME9 = "ElCascader";
 var __default__36 = defineComponent({
   name: COMPONENT_NAME9
@@ -25960,7 +25946,7 @@ var Cascader = _export_sfc(_sfc_main40, [["__file", "cascader.vue"]]);
 // node_modules/element-plus/es/components/cascader/index.mjs
 var ElCascader = withInstall(Cascader);
 
-// node_modules/element-plus/es/components/check-tag/src/check-tag2.mjs
+// node_modules/element-plus/es/components/check-tag/src/check-tag.mjs
 var checkTagProps = buildProps({
   checked: Boolean,
   disabled: Boolean,
@@ -25975,7 +25961,7 @@ var checkTagEmits = {
   [CHANGE_EVENT]: (value) => isBoolean2(value)
 };
 
-// node_modules/element-plus/es/components/check-tag/src/check-tag.mjs
+// node_modules/element-plus/es/components/check-tag/src/check-tag2.mjs
 var __default__37 = defineComponent({
   name: "ElCheckTag"
 });
@@ -26015,7 +26001,7 @@ var CheckTag = _export_sfc(_sfc_main41, [["__file", "check-tag.vue"]]);
 // node_modules/element-plus/es/components/check-tag/index.mjs
 var ElCheckTag = withInstall(CheckTag);
 
-// node_modules/element-plus/es/components/col/src/col2.mjs
+// node_modules/element-plus/es/components/col/src/col.mjs
 var colProps = buildProps({
   tag: {
     type: String,
@@ -26062,7 +26048,7 @@ var colProps = buildProps({
 // node_modules/element-plus/es/components/row/src/constants.mjs
 var rowContextKey = Symbol("rowContextKey");
 
-// node_modules/element-plus/es/components/col/src/col.mjs
+// node_modules/element-plus/es/components/col/src/col2.mjs
 var __default__38 = defineComponent({
   name: "ElCol"
 });
@@ -26125,7 +26111,7 @@ var Col = _export_sfc(_sfc_main42, [["__file", "col.vue"]]);
 // node_modules/element-plus/es/components/col/index.mjs
 var ElCol = withInstall(Col);
 
-// node_modules/element-plus/es/components/collapse/src/collapse2.mjs
+// node_modules/element-plus/es/components/collapse/src/collapse.mjs
 var emitChangeFn3 = (value) => isNumber2(value) || isString(value) || isArray(value);
 var collapseProps = buildProps({
   accordion: Boolean,
@@ -26220,7 +26206,7 @@ var useCollapseDOM = (props2) => {
   };
 };
 
-// node_modules/element-plus/es/components/collapse/src/collapse.mjs
+// node_modules/element-plus/es/components/collapse/src/collapse2.mjs
 var __default__39 = defineComponent({
   name: "ElCollapse"
 });
@@ -26536,10 +26522,7 @@ var alphaSliderProps = buildProps({
     type: definePropType(Object),
     required: true
   },
-  vertical: {
-    type: Boolean,
-    default: false
-  }
+  vertical: Boolean
 });
 
 // node_modules/element-plus/es/components/color-picker/src/utils/draggable.mjs
@@ -29656,10 +29639,7 @@ var TimePicker = defineComponent({
   install: null,
   props: {
     ...timePickerDefaultProps,
-    isRange: {
-      type: Boolean,
-      default: false
-    }
+    isRange: Boolean
   },
   emits: [UPDATE_MODEL_EVENT],
   setup(props2, ctx) {
@@ -35284,10 +35264,7 @@ var _sfc_main79 = defineComponent({
       type: Boolean,
       default: true
     },
-    active: {
-      type: Boolean,
-      default: false
-    }
+    active: Boolean
   },
   emits: ["mousedown", "focus", "keydown"],
   setup(props2, { emit }) {
@@ -37605,7 +37582,7 @@ var ElForm = withInstall(Form, {
 });
 var ElFormItem = withNoopInstall(FormItem);
 
-// node_modules/element-plus/es/components/image-viewer/src/image-viewer.mjs
+// node_modules/element-plus/es/components/image-viewer/src/image-viewer2.mjs
 var imageViewerProps = buildProps({
   urlList: {
     type: definePropType(Array),
@@ -37640,10 +37617,7 @@ var imageViewerProps = buildProps({
     type: Number,
     default: 7
   },
-  showProgress: {
-    type: Boolean,
-    default: false
-  },
+  showProgress: Boolean,
   crossorigin: {
     type: definePropType(String)
   }
@@ -37654,7 +37628,7 @@ var imageViewerEmits = {
   rotate: (deg) => isNumber2(deg)
 };
 
-// node_modules/element-plus/es/components/image-viewer/src/image-viewer2.mjs
+// node_modules/element-plus/es/components/image-viewer/src/image-viewer.mjs
 var __default__63 = defineComponent({
   name: "ElImageViewer"
 });
@@ -38145,10 +38119,7 @@ var imageProps = buildProps({
     type: Number,
     default: 7
   },
-  showProgress: {
-    type: Boolean,
-    default: false
-  },
+  showProgress: Boolean,
   crossorigin: {
     type: definePropType(String)
   }
@@ -38380,7 +38351,7 @@ var Image2 = _export_sfc(_sfc_main88, [["__file", "image.vue"]]);
 // node_modules/element-plus/es/components/image/index.mjs
 var ElImage = withInstall(Image2);
 
-// node_modules/element-plus/es/components/input-number/src/input-number.mjs
+// node_modules/element-plus/es/components/input-number/src/input-number2.mjs
 var inputNumberProps = buildProps({
   id: {
     type: String,
@@ -38393,11 +38364,11 @@ var inputNumberProps = buildProps({
   stepStrictly: Boolean,
   max: {
     type: Number,
-    default: Number.POSITIVE_INFINITY
+    default: Number.MAX_SAFE_INTEGER
   },
   min: {
     type: Number,
-    default: Number.NEGATIVE_INFINITY
+    default: Number.MIN_SAFE_INTEGER
   },
   modelValue: {
     type: [Number, null]
@@ -38443,7 +38414,7 @@ var inputNumberEmits = {
   [UPDATE_MODEL_EVENT]: (val) => isNumber2(val) || isNil_default(val)
 };
 
-// node_modules/element-plus/es/components/input-number/src/input-number2.mjs
+// node_modules/element-plus/es/components/input-number/src/input-number.mjs
 var __default__65 = defineComponent({
   name: "ElInputNumber"
 });
@@ -38528,6 +38499,13 @@ var _sfc_main89 = defineComponent({
     const ensurePrecision = (val, coefficient = 1) => {
       if (!isNumber2(val))
         return data.currentValue;
+      if (val >= Number.MAX_SAFE_INTEGER && coefficient === 1) {
+        debugWarn("InputNumber", "The value has reached the maximum safe integer limit.");
+        return val;
+      } else if (val <= Number.MIN_SAFE_INTEGER && coefficient === -1) {
+        debugWarn("InputNumber", "The value has reached the minimum safe integer limit.");
+        return val;
+      }
       return toPrecision(val + props2.step * coefficient);
     };
     const increase = () => {
@@ -38794,10 +38772,7 @@ var inputTagProps = buildProps({
     type: definePropType(String),
     default: EVENT_CODE.enter
   },
-  draggable: {
-    type: Boolean,
-    default: false
-  },
+  draggable: Boolean,
   delimiter: {
     type: [String, RegExp],
     default: ""
@@ -38843,7 +38818,7 @@ var inputTagEmits = {
   [UPDATE_MODEL_EVENT]: (value) => isArray(value) || isUndefined2(value),
   [CHANGE_EVENT]: (value) => isArray(value) || isUndefined2(value),
   [INPUT_EVENT]: (value) => isString(value),
-  "add-tag": (value) => isString(value),
+  "add-tag": (value) => isString(value) || isArray(value),
   "remove-tag": (value) => isString(value),
   focus: (evt) => evt instanceof FocusEvent,
   blur: (evt) => evt instanceof FocusEvent,
@@ -38868,19 +38843,34 @@ function useInputTag({ props: props2, emit, formItem }) {
     var _a2, _b;
     return isUndefined2(props2.max) ? false : ((_b = (_a2 = props2.modelValue) == null ? void 0 : _a2.length) != null ? _b : 0) >= props2.max;
   });
-  const handleInput = (event) => {
+  const addTagsEmit = (value) => {
+    var _a2;
+    const list = [...(_a2 = props2.modelValue) != null ? _a2 : [], ...castArray_default(value)];
+    emit(UPDATE_MODEL_EVENT, list);
+    emit(CHANGE_EVENT, list);
+    emit("add-tag", value);
+    inputValue.value = void 0;
+  };
+  const getDelimitedTags = (input) => {
     var _a2, _b;
+    const tags = input.split(props2.delimiter).filter((val) => val && val !== input);
+    if (props2.max) {
+      const maxInsert = props2.max - ((_b = (_a2 = props2.modelValue) == null ? void 0 : _a2.length) != null ? _b : 0);
+      tags.splice(maxInsert);
+    }
+    return tags.length === 1 ? tags[0] : tags;
+  };
+  const handleInput = (event) => {
     if (inputLimit.value) {
       inputValue.value = void 0;
       return;
     }
     if (isComposing.value)
       return;
-    if (props2.delimiter) {
-      const replacement = (_a2 = inputValue.value) == null ? void 0 : _a2.replace(props2.delimiter, "");
-      if ((replacement == null ? void 0 : replacement.length) !== ((_b = inputValue.value) == null ? void 0 : _b.length)) {
-        inputValue.value = replacement;
-        handleAddTag();
+    if (props2.delimiter && inputValue.value) {
+      const tags = getDelimitedTags(inputValue.value);
+      if (tags.length) {
+        addTagsEmit(tags);
       }
     }
     emit(INPUT_EVENT, event.target.value);
@@ -38912,15 +38902,11 @@ function useInputTag({ props: props2, emit, formItem }) {
     }
   };
   const handleAddTag = () => {
-    var _a2, _b;
+    var _a2;
     const value = (_a2 = inputValue.value) == null ? void 0 : _a2.trim();
     if (!value || inputLimit.value)
       return;
-    const list = [...(_b = props2.modelValue) != null ? _b : [], value];
-    emit(UPDATE_MODEL_EVENT, list);
-    emit(CHANGE_EVENT, list);
-    emit("add-tag", value);
-    inputValue.value = void 0;
+    addTagsEmit(value);
   };
   const handleRemoveTag = (index) => {
     var _a2;
@@ -39385,7 +39371,7 @@ var InputTag = _export_sfc(_sfc_main90, [["__file", "input-tag.vue"]]);
 // node_modules/element-plus/es/components/input-tag/index.mjs
 var ElInputTag = withInstall(InputTag);
 
-// node_modules/element-plus/es/components/link/src/link.mjs
+// node_modules/element-plus/es/components/link/src/link2.mjs
 var linkProps = buildProps({
   type: {
     type: String,
@@ -39411,7 +39397,7 @@ var linkEmits = {
   click: (evt) => evt instanceof MouseEvent
 };
 
-// node_modules/element-plus/es/components/link/src/link2.mjs
+// node_modules/element-plus/es/components/link/src/link.mjs
 var __default__67 = defineComponent({
   name: "ElLink"
 });
@@ -40303,7 +40289,7 @@ var Menu2 = defineComponent({
   }
 });
 
-// node_modules/element-plus/es/components/menu/src/menu-item2.mjs
+// node_modules/element-plus/es/components/menu/src/menu-item.mjs
 var menuItemProps = buildProps({
   index: {
     type: definePropType([String, null]),
@@ -40318,7 +40304,7 @@ var menuItemEmits = {
   click: (item) => isString(item.index) && isArray(item.indexPath)
 };
 
-// node_modules/element-plus/es/components/menu/src/menu-item.mjs
+// node_modules/element-plus/es/components/menu/src/menu-item2.mjs
 var COMPONENT_NAME15 = "ElMenuItem";
 var __default__69 = defineComponent({
   name: COMPONENT_NAME15
@@ -40570,7 +40556,7 @@ var ElPageHeader = withInstall(PageHeader);
 // node_modules/element-plus/es/components/pagination/src/constants.mjs
 var elPaginationKey = Symbol("elPaginationKey");
 
-// node_modules/element-plus/es/components/pagination/src/components/prev2.mjs
+// node_modules/element-plus/es/components/pagination/src/components/prev.mjs
 var paginationPrevProps = buildProps({
   disabled: Boolean,
   currentPage: {
@@ -40588,7 +40574,7 @@ var paginationPrevEmits = {
   click: (evt) => evt instanceof MouseEvent
 };
 
-// node_modules/element-plus/es/components/pagination/src/components/prev.mjs
+// node_modules/element-plus/es/components/pagination/src/components/prev2.mjs
 var __default__72 = defineComponent({
   name: "ElPaginationPrev"
 });
@@ -41809,6 +41795,9 @@ var _sfc_main100 = defineComponent({
       }
       return API.states.selected.map((i) => i.currentLabel);
     });
+    onBeforeUnmount(() => {
+      instance.appContext.config.warnHandler = void 0;
+    });
     return {
       ...API,
       modelValue,
@@ -42966,10 +42955,7 @@ var popconfirmProps = buildProps({
     type: String,
     default: "#f90"
   },
-  hideIcon: {
-    type: Boolean,
-    default: false
-  },
+  hideIcon: Boolean,
   hideAfter: {
     type: Number,
     default: 200
@@ -43978,7 +43964,7 @@ var Result = _export_sfc(_sfc_main110, [["__file", "result.vue"]]);
 // node_modules/element-plus/es/components/result/index.mjs
 var ElResult = withInstall(Result);
 
-// node_modules/element-plus/es/components/row/src/row.mjs
+// node_modules/element-plus/es/components/row/src/row2.mjs
 var RowJustify = [
   "start",
   "center",
@@ -44008,7 +43994,7 @@ var rowProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/row/src/row2.mjs
+// node_modules/element-plus/es/components/row/src/row.mjs
 var __default__83 = defineComponent({
   name: "ElRow"
 });
@@ -44497,10 +44483,7 @@ var virtualizedProps = buildProps({
   style: {
     type: definePropType([Object, String, Array])
   },
-  useIsScrolling: {
-    type: Boolean,
-    default: false
-  },
+  useIsScrolling: Boolean,
   width: {
     type: [Number, String],
     required: false
@@ -44509,10 +44492,7 @@ var virtualizedProps = buildProps({
     type: Boolean,
     default: true
   },
-  scrollbarAlwaysOn: {
-    type: Boolean,
-    default: false
-  }
+  scrollbarAlwaysOn: Boolean
 });
 var virtualizedListProps = buildProps({
   cache,
@@ -45103,7 +45083,8 @@ var createList = ({
         onScroll: onScrollbarScroll,
         ratio: clientSize * 100 / this.estimatedTotalSize,
         scrollFrom: states.scrollOffset / (this.estimatedTotalSize - clientSize),
-        total: total2
+        total: total2,
+        alwaysOn: states.scrollbarAlwaysOn
       });
       const listContainer = h(Container2, {
         class: [ns.e("window"), className],
@@ -45756,8 +45737,9 @@ var useSelect2 = (props2, emit) => {
   });
   const filterOptions = (query) => {
     const regexp4 = new RegExp(escapeStringRegexp(query), "i");
-    const isFilterMethodValid = props2.filterable && isFunction(props2.filterMethod);
-    const isRemoteMethodValid = props2.filterable && props2.remote && isFunction(props2.remoteMethod);
+    const { filterMethod, remoteMethod } = toRaw(props2);
+    const isFilterMethodValid = props2.filterable && isFunction(filterMethod);
+    const isRemoteMethodValid = props2.filterable && props2.remote && isFunction(remoteMethod);
     const isValidOption = (o2) => {
       if (isFilterMethodValid || isRemoteMethodValid)
         return true;
@@ -46782,12 +46764,9 @@ var Select2 = _export_sfc(_sfc_main114, [["render", _sfc_render20], ["__file", "
 // node_modules/element-plus/es/components/select-v2/index.mjs
 var ElSelectV2 = withInstall(Select2);
 
-// node_modules/element-plus/es/components/skeleton/src/skeleton2.mjs
+// node_modules/element-plus/es/components/skeleton/src/skeleton.mjs
 var skeletonProps = buildProps({
-  animated: {
-    type: Boolean,
-    default: false
-  },
+  animated: Boolean,
   count: {
     type: Number,
     default: 1
@@ -46805,7 +46784,7 @@ var skeletonProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/skeleton/src/skeleton-item2.mjs
+// node_modules/element-plus/es/components/skeleton/src/skeleton-item.mjs
 var skeletonItemProps = buildProps({
   variant: {
     type: String,
@@ -46824,7 +46803,7 @@ var skeletonItemProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/skeleton/src/skeleton-item.mjs
+// node_modules/element-plus/es/components/skeleton/src/skeleton-item2.mjs
 var __default__84 = defineComponent({
   name: "ElSkeletonItem"
 });
@@ -46885,7 +46864,7 @@ var useThrottleRender = (loading, throttle2 = 0) => {
   return throttled;
 };
 
-// node_modules/element-plus/es/components/skeleton/src/skeleton.mjs
+// node_modules/element-plus/es/components/skeleton/src/skeleton2.mjs
 var __default__85 = defineComponent({
   name: "ElSkeleton"
 });
@@ -46939,7 +46918,7 @@ var ElSkeletonItem = withNoopInstall(SkeletonItem);
 // node_modules/element-plus/es/components/slider/src/constants.mjs
 var sliderContextKey = Symbol("sliderContextKey");
 
-// node_modules/element-plus/es/components/slider/src/slider.mjs
+// node_modules/element-plus/es/components/slider/src/slider2.mjs
 var sliderProps = buildProps({
   modelValue: {
     type: definePropType([Number, Array]),
@@ -47684,7 +47663,7 @@ var useLifecycle = (props2, initData, resetSize) => {
   };
 };
 
-// node_modules/element-plus/es/components/slider/src/slider2.mjs
+// node_modules/element-plus/es/components/slider/src/slider.mjs
 var __default__87 = defineComponent({
   name: "ElSlider"
 });
@@ -48108,7 +48087,7 @@ var Space = defineComponent({
 // node_modules/element-plus/es/components/space/index.mjs
 var ElSpace = withInstall(Space);
 
-// node_modules/element-plus/es/components/statistic/src/statistic2.mjs
+// node_modules/element-plus/es/components/statistic/src/statistic.mjs
 var statisticProps = buildProps({
   decimalSeparator: {
     type: String,
@@ -48135,7 +48114,7 @@ var statisticProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/statistic/src/statistic.mjs
+// node_modules/element-plus/es/components/statistic/src/statistic2.mjs
 var __default__88 = defineComponent({
   name: "ElStatistic"
 });
@@ -48333,7 +48312,7 @@ var Countdown = _export_sfc(_sfc_main120, [["__file", "countdown.vue"]]);
 // node_modules/element-plus/es/components/countdown/index.mjs
 var ElCountdown = withInstall(Countdown);
 
-// node_modules/element-plus/es/components/steps/src/steps2.mjs
+// node_modules/element-plus/es/components/steps/src/steps.mjs
 var stepsProps = buildProps({
   space: {
     type: [Number, String],
@@ -48372,7 +48351,7 @@ var stepsEmits = {
 // node_modules/element-plus/es/components/steps/src/tokens.mjs
 var STEPS_INJECTION_KEY = "ElSteps";
 
-// node_modules/element-plus/es/components/steps/src/steps.mjs
+// node_modules/element-plus/es/components/steps/src/steps2.mjs
 var __default__90 = defineComponent({
   name: "ElSteps"
 });
@@ -48410,7 +48389,7 @@ var _sfc_main121 = defineComponent({
 });
 var Steps = _export_sfc(_sfc_main121, [["__file", "steps.vue"]]);
 
-// node_modules/element-plus/es/components/steps/src/item.mjs
+// node_modules/element-plus/es/components/steps/src/item2.mjs
 var stepProps = buildProps({
   title: {
     type: String,
@@ -48430,7 +48409,7 @@ var stepProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/steps/src/item2.mjs
+// node_modules/element-plus/es/components/steps/src/item.mjs
 var __default__91 = defineComponent({
   name: "ElStep"
 });
@@ -48626,7 +48605,7 @@ var ElStep = withNoopInstall(Step);
 // node_modules/element-plus/es/utils/vue/validator.mjs
 var isValidComponentSize = (val) => ["", ...componentSizes].includes(val);
 
-// node_modules/element-plus/es/components/switch/src/switch2.mjs
+// node_modules/element-plus/es/components/switch/src/switch.mjs
 var switchProps = buildProps({
   modelValue: {
     type: [Boolean, String, Number],
@@ -48694,7 +48673,7 @@ var switchEmits = {
   [INPUT_EVENT]: (val) => isBoolean2(val) || isString(val) || isNumber2(val)
 };
 
-// node_modules/element-plus/es/components/switch/src/switch.mjs
+// node_modules/element-plus/es/components/switch/src/switch2.mjs
 var COMPONENT_NAME18 = "ElSwitch";
 var __default__92 = defineComponent({
   name: COMPONENT_NAME18
@@ -52614,10 +52593,7 @@ var defaultProps3 = {
     type: Boolean,
     default: true
   },
-  preserveExpandedContent: {
-    type: Boolean,
-    default: false
-  }
+  preserveExpandedContent: Boolean
 };
 
 // node_modules/element-plus/es/components/table/src/h-helper.mjs
@@ -57383,7 +57359,7 @@ var Tabs = defineComponent({
 });
 var Tabs$1 = Tabs;
 
-// node_modules/element-plus/es/components/tabs/src/tab-pane2.mjs
+// node_modules/element-plus/es/components/tabs/src/tab-pane.mjs
 var tabPaneProps = buildProps({
   label: {
     type: String,
@@ -57397,7 +57373,7 @@ var tabPaneProps = buildProps({
   lazy: Boolean
 });
 
-// node_modules/element-plus/es/components/tabs/src/tab-pane.mjs
+// node_modules/element-plus/es/components/tabs/src/tab-pane2.mjs
 var COMPONENT_NAME25 = "ElTabPane";
 var __default__95 = defineComponent({
   name: COMPONENT_NAME25
@@ -57450,8 +57426,9 @@ var _sfc_main128 = defineComponent({
       tabsRoot.unregisterPane(pane);
     });
     onBeforeUpdate(() => {
+      var _a2;
       if (slots.label)
-        tabsRoot.nav$.value.scheduleRender();
+        (_a2 = tabsRoot.nav$.value) == null ? void 0 : _a2.scheduleRender();
     });
     return (_ctx, _cache) => {
       return unref(shouldBeRender) ? withDirectives((openBlock(), createElementBlock("div", {
@@ -57608,10 +57585,7 @@ var timeSelectProps = buildProps({
   },
   minTime: String,
   maxTime: String,
-  includeEndTime: {
-    type: Boolean,
-    default: false
-  },
+  includeEndTime: Boolean,
   name: String,
   prefixIcon: {
     type: definePropType([String, Object]),
@@ -58045,7 +58019,7 @@ var tooltipV2TriggerProps = buildProps({
   onMouseLeave: EventHandler
 });
 
-// node_modules/element-plus/es/components/tooltip-v2/src/tooltip.mjs
+// node_modules/element-plus/es/components/tooltip-v2/src/tooltip2.mjs
 var tooltipV2Props = buildProps({
   ...tooltipV2RootProps,
   ...tooltipV2ArrowProps,
@@ -59919,7 +59893,7 @@ var _sfc_main136 = defineComponent({
 });
 var TooltipV2Trigger = _export_sfc(_sfc_main136, [["__file", "trigger.vue"]]);
 
-// node_modules/element-plus/es/components/tooltip-v2/src/tooltip2.mjs
+// node_modules/element-plus/es/components/tooltip-v2/src/tooltip.mjs
 var __default__104 = defineComponent({
   name: "ElTooltipV2"
 });
@@ -60057,7 +60031,7 @@ var transferEmits = {
   [RIGHT_CHECK_CHANGE_EVENT]: transferCheckedChangeFn
 };
 
-// node_modules/element-plus/es/components/transfer/src/transfer-panel.mjs
+// node_modules/element-plus/es/components/transfer/src/transfer-panel2.mjs
 var CHECKED_CHANGE_EVENT = "checked-change";
 var transferPanelProps = buildProps({
   data: transferProps.data,
@@ -60173,7 +60147,7 @@ var useCheck = (props2, panelState, emit) => {
   };
 };
 
-// node_modules/element-plus/es/components/transfer/src/transfer-panel2.mjs
+// node_modules/element-plus/es/components/transfer/src/transfer-panel.mjs
 var __default__105 = defineComponent({
   name: "ElTransferPanel"
 });
@@ -61558,10 +61532,7 @@ var _sfc_main141 = defineComponent({
     accordion: Boolean,
     renderContent: Function,
     renderAfterExpand: Boolean,
-    showCheckbox: {
-      type: Boolean,
-      default: false
-    }
+    showCheckbox: Boolean
   },
   emits: ["node-expand"],
   setup(props2, ctx) {
@@ -61955,10 +61926,7 @@ var _sfc_main142 = defineComponent({
       type: Boolean,
       default: true
     },
-    checkDescendants: {
-      type: Boolean,
-      default: false
-    },
+    checkDescendants: Boolean,
     autoExpandParent: {
       type: Boolean,
       default: true
@@ -61969,14 +61937,8 @@ var _sfc_main142 = defineComponent({
     renderContent: {
       type: definePropType(Function)
     },
-    showCheckbox: {
-      type: Boolean,
-      default: false
-    },
-    draggable: {
-      type: Boolean,
-      default: false
-    },
+    showCheckbox: Boolean,
+    draggable: Boolean,
     allowDrag: {
       type: definePropType(Function)
     },
@@ -61991,10 +61953,7 @@ var _sfc_main142 = defineComponent({
         disabled: "disabled"
       })
     },
-    lazy: {
-      type: Boolean,
-      default: false
-    },
+    lazy: Boolean,
     highlightCurrent: Boolean,
     load: Function,
     filterNodeMethod: Function,
@@ -62671,22 +62630,13 @@ var treeProps = buildProps({
       /* CLASS */
     })
   },
-  highlightCurrent: {
-    type: Boolean,
-    default: false
-  },
-  showCheckbox: {
-    type: Boolean,
-    default: false
-  },
+  highlightCurrent: Boolean,
+  showCheckbox: Boolean,
   defaultCheckedKeys: {
     type: definePropType(Array),
     default: () => mutable([])
   },
-  checkStrictly: {
-    type: Boolean,
-    default: false
-  },
+  checkStrictly: Boolean,
   defaultExpandedKeys: {
     type: definePropType(Array),
     default: () => mutable([])
@@ -62703,10 +62653,7 @@ var treeProps = buildProps({
     type: Boolean,
     default: true
   },
-  checkOnClickNode: {
-    type: Boolean,
-    default: false
-  },
+  checkOnClickNode: Boolean,
   checkOnClickLeaf: {
     type: Boolean,
     default: true
@@ -62714,51 +62661,28 @@ var treeProps = buildProps({
   currentNodeKey: {
     type: definePropType([String, Number])
   },
-  accordion: {
-    type: Boolean,
-    default: false
-  },
+  accordion: Boolean,
   filterMethod: {
     type: definePropType(Function)
   },
   perfMode: {
     type: Boolean,
     default: true
-  }
+  },
+  scrollbarAlwaysOn: Boolean
 });
 var treeNodeProps = buildProps({
   node: {
     type: definePropType(Object),
     default: () => mutable(EMPTY_NODE)
   },
-  expanded: {
-    type: Boolean,
-    default: false
-  },
-  checked: {
-    type: Boolean,
-    default: false
-  },
-  indeterminate: {
-    type: Boolean,
-    default: false
-  },
-  showCheckbox: {
-    type: Boolean,
-    default: false
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
-  current: {
-    type: Boolean,
-    default: false
-  },
-  hiddenExpandIcon: {
-    type: Boolean,
-    default: false
-  },
+  expanded: Boolean,
+  checked: Boolean,
+  indeterminate: Boolean,
+  showCheckbox: Boolean,
+  disabled: Boolean,
+  current: Boolean,
+  hiddenExpandIcon: Boolean,
   itemSize: itemSize2
 });
 var treeNodeContentProps = buildProps({
@@ -63542,7 +63466,8 @@ var _sfc_main145 = defineComponent({
           total: unref(flattenTree).length,
           height: _ctx.height,
           "item-size": unref(treeNodeSize),
-          "perf-mode": _ctx.perfMode
+          "perf-mode": _ctx.perfMode,
+          "scrollbar-always-on": _ctx.scrollbarAlwaysOn
         }, {
           default: withCtx(({ data, index, style }) => [
             (openBlock(), createBlock(ElTreeNode2, {
@@ -63564,7 +63489,7 @@ var _sfc_main145 = defineComponent({
             }, null, 8, ["style", "node", "expanded", "show-checkbox", "checked", "indeterminate", "item-size", "disabled", "current", "hidden-expand-icon", "onClick", "onToggle", "onCheck", "onDrop"]))
           ]),
           _: 1
-        }, 8, ["class-name", "data", "total", "height", "item-size", "perf-mode"])) : (openBlock(), createElementBlock("div", {
+        }, 8, ["class-name", "data", "total", "height", "item-size", "perf-mode", "scrollbar-always-on"])) : (openBlock(), createElementBlock("div", {
           key: 1,
           class: normalizeClass(unref(ns).e("empty-block"))
         }, [
@@ -63768,16 +63693,13 @@ var uploadProps = buildProps({
   }
 });
 
-// node_modules/element-plus/es/components/upload/src/upload-list.mjs
+// node_modules/element-plus/es/components/upload/src/upload-list2.mjs
 var uploadListProps = buildProps({
   files: {
     type: definePropType(Array),
     default: () => mutable([])
   },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
+  disabled: Boolean,
   handlePreview: {
     type: definePropType(Function),
     default: NOOP
@@ -63795,7 +63717,7 @@ var uploadListEmits = {
   remove: (file) => !!file
 };
 
-// node_modules/element-plus/es/components/upload/src/upload-list2.mjs
+// node_modules/element-plus/es/components/upload/src/upload-list.mjs
 var __default__109 = defineComponent({
   name: "ElUploadList"
 });
@@ -63964,10 +63886,7 @@ var UploadList = _export_sfc(_sfc_main146, [["__file", "upload-list.vue"]]);
 
 // node_modules/element-plus/es/components/upload/src/upload-dragger.mjs
 var uploadDraggerProps = buildProps({
-  disabled: {
-    type: Boolean,
-    default: false
-  }
+  disabled: Boolean
 });
 var uploadDraggerEmits = {
   file: (file) => isArray(file)
@@ -65156,7 +65075,7 @@ var _sfc_main151 = defineComponent({
 });
 var ElTourMask = _export_sfc(_sfc_main151, [["__file", "mask.vue"]]);
 
-// node_modules/element-plus/es/components/tour/src/content.mjs
+// node_modules/element-plus/es/components/tour/src/content2.mjs
 var tourStrategies = ["absolute", "fixed"];
 var tourPlacements = [
   "top-start",
@@ -65201,7 +65120,7 @@ var tourContentEmits = {
   close: () => true
 };
 
-// node_modules/element-plus/es/components/tour/src/content2.mjs
+// node_modules/element-plus/es/components/tour/src/content.mjs
 var __default__115 = defineComponent({
   name: "ElTourContent"
 });
@@ -65520,7 +65439,7 @@ var _sfc_main153 = defineComponent({
 });
 var Tour = _export_sfc(_sfc_main153, [["__file", "tour.vue"]]);
 
-// node_modules/element-plus/es/components/tour/src/step.mjs
+// node_modules/element-plus/es/components/tour/src/step2.mjs
 var tourStepProps = buildProps({
   target: {
     type: definePropType([String, Object, Function])
@@ -65564,7 +65483,7 @@ var tourStepEmits = {
   close: () => true
 };
 
-// node_modules/element-plus/es/components/tour/src/step2.mjs
+// node_modules/element-plus/es/components/tour/src/step.mjs
 var __default__117 = defineComponent({
   name: "ElTourStep"
 });
@@ -65764,10 +65683,7 @@ var anchorProps = buildProps({
     type: definePropType(String),
     default: "vertical"
   },
-  selectScrollTop: {
-    type: Boolean,
-    default: false
-  }
+  selectScrollTop: Boolean
 });
 var anchorEmits = {
   change: (href) => isString(href),
@@ -66098,7 +66014,7 @@ var ElAnchor = withInstall(Anchor, {
 });
 var ElAnchorLink = withNoopInstall(AnchorLink);
 
-// node_modules/element-plus/es/components/segmented/src/segmented2.mjs
+// node_modules/element-plus/es/components/segmented/src/segmented.mjs
 var defaultProps5 = {
   label: "label",
   value: "value",
@@ -66137,7 +66053,7 @@ var segmentedEmits = {
   [CHANGE_EVENT]: (val) => isString(val) || isNumber2(val) || isBoolean2(val)
 };
 
-// node_modules/element-plus/es/components/segmented/src/segmented.mjs
+// node_modules/element-plus/es/components/segmented/src/segmented2.mjs
 var __default__120 = defineComponent({
   name: "ElSegmented"
 });
@@ -66447,7 +66363,7 @@ var getCursorPosition = (element, options = {
   return relativePosition;
 };
 
-// node_modules/element-plus/es/components/mention/src/mention.mjs
+// node_modules/element-plus/es/components/mention/src/mention2.mjs
 var mentionProps = buildProps({
   ...inputProps,
   options: {
@@ -66503,6 +66419,7 @@ var mentionProps = buildProps({
 });
 var mentionEmits = {
   [UPDATE_MODEL_EVENT]: (value) => isString(value),
+  "whole-remove": (pattern4, prefix) => isString(pattern4) && isString(prefix),
   input: (value) => isString(value),
   search: (pattern4, prefix) => isString(pattern4) && isString(prefix),
   select: (option, prefix) => isString(option.value) && isString(prefix),
@@ -66510,7 +66427,7 @@ var mentionEmits = {
   blur: (evt) => evt instanceof FocusEvent
 };
 
-// node_modules/element-plus/es/components/mention/src/mention-dropdown.mjs
+// node_modules/element-plus/es/components/mention/src/mention-dropdown2.mjs
 var mentionDropdownProps = buildProps({
   options: {
     type: definePropType(Array),
@@ -66525,7 +66442,7 @@ var mentionDropdownEmits = {
   select: (option) => isString(option.value)
 };
 
-// node_modules/element-plus/es/components/mention/src/mention-dropdown2.mjs
+// node_modules/element-plus/es/components/mention/src/mention-dropdown.mjs
 var __default__121 = defineComponent({
   name: "ElMentionDropdown"
 });
@@ -66686,7 +66603,7 @@ var _sfc_main158 = defineComponent({
 });
 var ElMentionDropdown = _export_sfc(_sfc_main158, [["__file", "mention-dropdown.vue"]]);
 
-// node_modules/element-plus/es/components/mention/src/mention2.mjs
+// node_modules/element-plus/es/components/mention/src/mention.mjs
 var __default__122 = defineComponent({
   name: "ElMention",
   inheritAttrs: false
@@ -66774,6 +66691,7 @@ var _sfc_main159 = defineComponent({
               const newValue = inputValue.slice(0, prefixIndex) + inputValue.slice(splitIndex + 1);
               emit(UPDATE_MODEL_EVENT, newValue);
               emit(INPUT_EVENT, newValue);
+              emit("whole-remove", pattern4, prefix);
               const newSelectionEnd = prefixIndex;
               nextTick(() => {
                 inputEl.selectionStart = newSelectionEnd;
@@ -66961,7 +66879,7 @@ var Mention = _export_sfc(_sfc_main159, [["__file", "mention.vue"]]);
 // node_modules/element-plus/es/components/mention/index.mjs
 var ElMention = withInstall(Mention);
 
-// node_modules/element-plus/es/components/splitter/src/splitter2.mjs
+// node_modules/element-plus/es/components/splitter/src/splitter.mjs
 var splitterProps = buildProps({
   layout: {
     type: String,
@@ -67125,7 +67043,7 @@ function useResize(panels, containerSize, pxSizes) {
   return { onMoveStart, onMoving, onMoveEnd, movingIndex, onCollapse };
 }
 
-// node_modules/element-plus/es/components/splitter/src/splitter.mjs
+// node_modules/element-plus/es/components/splitter/src/splitter2.mjs
 var __default__123 = defineComponent({
   name: "ElSplitter"
 });
@@ -67376,10 +67294,7 @@ var splitterPanelProps = buildProps({
     type: Boolean,
     default: true
   },
-  collapsible: {
-    type: Boolean,
-    default: false
-  }
+  collapsible: Boolean
 });
 
 // node_modules/element-plus/es/components/splitter/src/split-panel2.mjs
@@ -68559,10 +68474,7 @@ var _sfc_main164 = defineComponent({
     center: Boolean,
     draggable: Boolean,
     overflow: Boolean,
-    roundButton: {
-      default: false,
-      type: Boolean
-    },
+    roundButton: Boolean,
     container: {
       type: String,
       default: "body"
