@@ -1,6 +1,8 @@
 <!--来自 https://note.weizwz.com/vitepress/extend/markdown-examples#title-link -->
 # 此为测试页
 
+## 按钮组件参考
+https://amu-environment.github.io/amu-ui/guild/quickstart.html
 
 ## 表格
 | 默认居左对齐 | 居中对齐 | 居右对齐 |

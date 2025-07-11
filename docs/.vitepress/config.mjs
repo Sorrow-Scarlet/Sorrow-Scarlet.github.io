@@ -8,11 +8,8 @@ export default defineConfig({
   lineNumbers: true,
     // 图片懒加载
   image: {
-    lazyLoading: true,
-      // 代码框内复制按钮的 title 提示
-      },
-    codeCopyButtonTitle: '复制',
-      },
+    lazyLoading: true },
+  },
   cleanUrls: true,
   title: "忧的主页",
   description: "主页",
@@ -65,6 +62,7 @@ export default defineConfig({
       sortFolderTo: "top",
       // 菜单展开功能
       collapsed: false,
+      includeFolderIndexFile: false,
     }),
 
     nav: [
@@ -74,9 +72,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Sorrow-Scarlet' },
-      {
-        icon:'bilibili', link: "https://space.bilibili.com/47130830"
-      }
+      { icon:'bilibili', link: "https://space.bilibili.com/47130830"}
     ],
         footer: {
       message: '许可协议<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io/blob/main/LICENSE">GPL-V3',

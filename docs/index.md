@@ -14,26 +14,29 @@ hero:
       text: 前往Test页
       link: /测试页面/test
     - theme: alt
-      text: 前往Construction
+      text: 前往construction
       link: /测试页面/construction
+    - theme: alt
+      text: 前往小工具
+      link: /小工具/index
 
 features:
   - icon: 
       src: /icons/todo.svg
     title: 待办清单
-    details: 嵌入更多小玩应，完善readme，，更多页面...
+    details: 嵌入更多小玩应，完善readme，完善导航栏，页脚，更多页面...
   - icon: 
       src: /icons/construction.svg
     title: 当前事项
-    details: 完善readme
+    details: 完善readme，嵌入文献排序器...
   - icon: 
       src: /icons/todo-finish.svg
     title: 完成事项
-    details: 主图,添加更多icon，更好的引用icon
+    details: 主图,添加更多icon，更好的引用icon...
   - icon: 
       src: /icons/joker.svg
     title: 赛博对联
-    details: 优化网站流畅度，提高网站稳定性
+    details: 优化网站流畅度，提高网站稳定性。
 
 ---
 <DataPanel />
