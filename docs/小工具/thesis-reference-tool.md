@@ -1,4 +1,3 @@
-# 参考文献排序工具
 <style>
     textarea {
       Width: 648px;
@@ -28,31 +27,102 @@
       padding: 10px;
       font-size: 90%;
     }
+    
+    input[type=checkbox]{
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    position: relative;
+    }
+    input[type=checkbox]::after {
+    position: absolute;
+    top: 0;
+    color: #000;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    visibility: visible;
+    padding-left: 0px;
+    text-align: center;
+    content: ' ';
+    border-radius: 3px;
+    }
+    input[type=checkbox]:checked::after {
+    content: "✓";
+    color: #ffffff;
+    font-size: 10px;
+    line-height: 15px;
+    background-color: #8C1740;
+  }
+
+
 </style>
+<!--没想到csdn也有有用的一天。https://blog.csdn.net/ruanxinjie/article/details/119670108-->
+
+<!--别问为什么那么多空行，代码能跑-->
+# 参考文献排序工具
+
+>本页面修改自 https://github.com/wzkMaster/thesis-reference-tool
+
+## 待排序的参考文献列表
+
+<textarea id="ref-list" placeholder="将参考文献粘贴至此"></textarea>
+
+  <AButton @click="sortReferences()" round color="#8C1740">点此排序</AButton>
+
+  <input id="sort" type="checkbox" ><label for="sort">根据作者姓名字顺排序</label>
+
+## 排序后的参考文献列表：
+<AButton @click="copyText()" round color="#8C1740">一键复制</AButton>
 
 
-<template>
-  <a-button>按钮</a-button>
-</template>
+  <p id="ref-output"></p>
 
 <script setup>
 import { AButton } from 'amu-ui'
+
+// 复制排序后的参考文献列表到剪贴板
+function copyText() {
+  const refOutput = document.getElementById("ref-output");
+  // 复制文本到剪贴板
+  navigator.clipboard.writeText(refOutput.textContent).then(
+    function () {
+      alert("复制成功！");
+    },
+    function () {
+      alert("复制失败！");
+    }
+  );
+}
+
+function sortReferences() {
+  const input = document
+    .getElementById("ref-list")
+    .value.split("\n")
+    .filter((item) => item);
+
+  const isSort = document.getElementById("sort").checked;
+
+  // 根据作者字顺排序
+  if (isSort) {
+    input.sort((a, b) =>
+      a
+        .replace(/^\[\d+\]\s*/, "")
+        .localeCompare(b.replace(/^\[\d+\]\s*/, ""), "zh-Hans-CN", {
+          sensitivity: "accent",
+        })
+    );
+  }
+
+  // 去除原序号，添加正确的新序号
+  const r = input.map((item, index) => {
+    if (item) {
+      return `[${index + 1}] ${item.trim().replace(/^\[\d+\]\s*/, "")}`;
+    }
+  });
+
+  // 输出到页面
+  const refOutput = document.getElementById("ref-output");
+  refOutput.textContent = r.join("\n");
+}
 </script>
-
-  <div class="container">
-    <textarea id="ref-list" placeholder="请在这里输入您的参考文献列表"></textarea>
-    <div class="option">
-      <AButton onclick="sortReferences()">排序</AButton>
-      <div>
-        <input id="sort" type="checkbox"><label for="sort">根据作者姓名字顺排序</label>
-      </div>
-    </div>
-  
-
-   <div class="output">
-      <label>排序后的参考文献列表：</label>
-      <button onclick="copyText()">一键复制</button>
-      <p id="ref-output"></p>
-    </div>
-  </div>
-
