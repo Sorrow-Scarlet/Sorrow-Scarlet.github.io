@@ -97,6 +97,7 @@ function copyText() {
   );
 }
 
+
 function sortReferences() {
   const input = document
     .getElementById("ref-list")
