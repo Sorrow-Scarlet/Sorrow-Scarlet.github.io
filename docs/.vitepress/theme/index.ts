@@ -8,7 +8,6 @@ import busuanzi from "busuanzi.pure.js";
 import DataPanel from "./components/DataPanel.vue";
 
 
-
 export default {
   extends: DefaultTheme,
     setup() {

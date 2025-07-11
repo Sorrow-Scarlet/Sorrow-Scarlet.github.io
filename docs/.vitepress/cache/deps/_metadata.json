@@ -1,62 +1,56 @@
 {
-  "hash": "ecfc6723",
+  "hash": "f785192f",
   "configHash": "f817bdbc",
-  "lockfileHash": "265c4bc1",
-  "browserHash": "9ef51946",
+  "lockfileHash": "86fda0cc",
+  "browserHash": "690540a5",
   "optimized": {
     "vue": {
       "src": "../../../../node_modules/vue/dist/vue.runtime.esm-bundler.js",
       "file": "vue.js",
-      "fileHash": "dc8c1039",
+      "fileHash": "671553de",
       "needsInterop": false
     },
     "vitepress > @vue/devtools-api": {
       "src": "../../../../node_modules/@vue/devtools-api/dist/index.js",
       "file": "vitepress___@vue_devtools-api.js",
-      "fileHash": "11cad15a",
+      "fileHash": "bb0173f0",
       "needsInterop": false
     },
     "vitepress > @vueuse/core": {
       "src": "../../../../node_modules/@vueuse/core/index.mjs",
       "file": "vitepress___@vueuse_core.js",
-      "fileHash": "abe27a4f",
+      "fileHash": "1d4a7b40",
       "needsInterop": false
     },
     "vitepress > @vueuse/integrations/useFocusTrap": {
       "src": "../../../../node_modules/@vueuse/integrations/useFocusTrap.mjs",
       "file": "vitepress___@vueuse_integrations_useFocusTrap.js",
-      "fileHash": "1b4c364f",
+      "fileHash": "79e71bda",
       "needsInterop": false
     },
     "vitepress > mark.js/src/vanilla.js": {
       "src": "../../../../node_modules/mark.js/src/vanilla.js",
       "file": "vitepress___mark__js_src_vanilla__js.js",
-      "fileHash": "680fcbcf",
+      "fileHash": "8c446843",
       "needsInterop": false
     },
     "vitepress > minisearch": {
       "src": "../../../../node_modules/minisearch/dist/es/index.js",
       "file": "vitepress___minisearch.js",
-      "fileHash": "b577f4ec",
+      "fileHash": "24484de5",
       "needsInterop": false
     },
     "medium-zoom": {
       "src": "../../../../node_modules/medium-zoom/dist/medium-zoom.esm.js",
       "file": "medium-zoom.js",
-      "fileHash": "e0cb85f2",
+      "fileHash": "3fe5ed50",
       "needsInterop": false
     },
     "busuanzi.pure.js": {
       "src": "../../../../node_modules/busuanzi.pure.js/index.js",
       "file": "busuanzi__pure__js.js",
-      "fileHash": "2f790753",
+      "fileHash": "84102f54",
       "needsInterop": true
-    },
-    "amu-ui": {
-      "src": "../../../../node_modules/amu-ui/es/index.mjs",
-      "file": "amu-ui.js",
-      "fileHash": "713004c6",
-      "needsInterop": false
     }
   },
   "chunks": {
@@ -66,8 +60,8 @@
     "chunk-6MLDCSDE": {
       "file": "chunk-6MLDCSDE.js"
     },
-    "chunk-HKJ2B2AA": {
-      "file": "chunk-HKJ2B2AA.js"
+    "chunk-BUSYA2B4": {
+      "file": "chunk-BUSYA2B4.js"
     }
   }
 }
