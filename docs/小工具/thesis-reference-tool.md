@@ -30,10 +30,19 @@
     }
 </style>
 
+
+<template>
+  <a-button>按钮</a-button>
+</template>
+
+<script setup>
+import { AButton } from 'amu-ui'
+</script>
+
   <div class="container">
     <textarea id="ref-list" placeholder="请在这里输入您的参考文献列表"></textarea>
     <div class="option">
-      <button onclick="sortReferences()">排序</button>
+      <AButton onclick="sortReferences()">排序</AButton>
       <div>
         <input id="sort" type="checkbox"><label for="sort">根据作者姓名字顺排序</label>
       </div>

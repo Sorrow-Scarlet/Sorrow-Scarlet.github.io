@@ -11,6 +11,9 @@ importers:
       '@iminu/vitepress-plugin-auto-sidebar':
         specifier: ^1.0.3
         version: 1.0.3
+      amu-ui:
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       busuanzi.pure.js:
         specifier: ^1.0.3
@@ -546,6 +549,9 @@ packages:
   algoliasearch@5.32.0:
     resolution: {integrity: sha512-84xBncKNPBK8Ae89F65+SyVcOihrIbm/3N7to+GpRBHEUXGjA3ydWTMpcRW6jmFzkBQ/eqYy/y+J+NBpJWYjBg==}
     engines: {node: '>= 14.0.0'}
+
+  amu-ui@1.1.0:
+    resolution: {integrity: sha512-GCDm8NcvgRywRy0nyfJ3TNDxhxFQdAHcIJPR4c4phTdJDi/XFax8l8oztY2rE5b2vKcax4KP6ps8lYLmyNmFIg==}
 
   ansi-regex@5.0.1:
     resolution: {integrity: sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ==}
@@ -1463,6 +1469,12 @@ snapshots:
       '@algolia/requester-browser-xhr': 5.32.0
       '@algolia/requester-fetch': 5.32.0
       '@algolia/requester-node-http': 5.32.0
+
+  amu-ui@1.1.0:
+    dependencies:
+      '@vueuse/core': 12.8.2
+    transitivePeerDependencies:
+      - typescript
 
   ansi-regex@5.0.1: {}
 

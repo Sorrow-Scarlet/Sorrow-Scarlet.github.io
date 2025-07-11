@@ -1,10 +1,10 @@
 import {
   __commonJS
-} from "./chunk-BUSYA2B4.js";
+} from "./chunk-HKJ2B2AA.js";
 
-// node_modules/busuanzi.pure.js/busuanzi.pure.js
+// node_modules/.pnpm/busuanzi.pure.js@1.0.3/node_modules/busuanzi.pure.js/busuanzi.pure.js
 var require_busuanzi_pure = __commonJS({
-  "node_modules/busuanzi.pure.js/busuanzi.pure.js"(exports, module) {
+  "node_modules/.pnpm/busuanzi.pure.js@1.0.3/node_modules/busuanzi.pure.js/busuanzi.pure.js"(exports, module) {
     var bszCaller;
     var bszTag;
     var scriptTag;
