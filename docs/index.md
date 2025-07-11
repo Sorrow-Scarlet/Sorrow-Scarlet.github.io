@@ -28,11 +28,11 @@ features:
   - icon: 
       src: /icons/construction.svg
     title: 当前事项
-    details: 完善readme，嵌入文献排序器...
+    details: 完善readme，...
   - icon: 
       src: /icons/todo-finish.svg
     title: 完成事项
-    details: 主图,添加更多icon，更好的引用icon...
+    details: 主图,添加更多icon，更好的引用icon,嵌入文献排序器...
   - icon: 
       src: /icons/joker.svg
     title: 赛博对联
