@@ -55,7 +55,6 @@
     background-color: #8C1740;
   }
 
-
 </style>
 <!--没想到csdn也有有用的一天。https://blog.csdn.net/ruanxinjie/article/details/119670108-->
 
@@ -64,19 +63,23 @@
 
 >本页面修改自 https://github.com/wzkMaster/thesis-reference-tool
 
-## 待排序的参考文献列表
-
+::: info 输入参考文献列表
 <textarea id="ref-list" placeholder="将参考文献粘贴至此"></textarea>
-
   <AButton @click="sortReferences()" round color="#8C1740">点此排序</AButton>
-
   <input id="sort" type="checkbox" ><label for="sort">根据作者姓名字顺排序</label>
+::: 
 
-## 排序后的参考文献列表：
+::: info 输出参考文献列表
 <AButton @click="copyText()" round color="#8C1740">一键复制</AButton>
+  <div class="output">
+    <p id="ref-output"></p>
+  </div>
+:::
 
-
-  <p id="ref-output"></p>
+::: info APA排序提示
+若有英语文献在前，中文在后的需求：  
+先根据作者姓名字顺排序一次，随后取消勾选排序一次。
+:::
 
 <script setup>
 import { AButton } from 'amu-ui'
@@ -84,7 +87,6 @@ import { AButton } from 'amu-ui'
 // 复制排序后的参考文献列表到剪贴板
 function copyText() {
   const refOutput = document.getElementById("ref-output");
-  // 复制文本到剪贴板
   navigator.clipboard.writeText(refOutput.textContent).then(
     function () {
       alert("复制成功！");
@@ -123,6 +125,6 @@ function sortReferences() {
 
   // 输出到页面
   const refOutput = document.getElementById("ref-output");
-  refOutput.textContent = r.join("\n");
+  refOutput.textContent = r.join("\r\n");
 }
 </script>
