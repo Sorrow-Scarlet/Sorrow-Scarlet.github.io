@@ -1,7 +1,14 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from 'vitepress-sidebar'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+
+//sitemap
+  sitemap: {
+    hostname: 'https://sorrow-scarlet.github.io',
+    lastmodDateOnly: false
+  },
   //各大语言设置
   markdown:{
     // 代码块行号显示
@@ -15,7 +22,6 @@ export default defineConfig({
     publicDir: './public/'
   },
   //各大语言设置结束
-
 
   cleanUrls: true,
   title: "忧的主页",
@@ -87,7 +93,8 @@ export default defineConfig({
       message: '许可协议<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io/blob/main/LICENSE">GPL-V3',
       copyright: 'Copyright © 2025 幻梦·忧',
     }
-  }
+  },
+ 
 })
 
 
