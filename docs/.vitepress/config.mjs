@@ -1,26 +1,32 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from 'vitepress-sidebar';
-
+import { generateSidebar } from 'vitepress-sidebar'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  //各大语言设置
   markdown:{
     // 代码块行号显示
   lineNumbers: true,
     // 图片懒加载
   image: {
-    lazyLoading: true,
-      // 代码框内复制按钮的 title 提示
-      },
-    codeCopyButtonTitle: '复制',
-      },
+    lazyLoading: true },
+
+  },
+  vite: {
+    publicDir: './public/'
+  },
+  //各大语言设置结束
+
+
   cleanUrls: true,
   title: "忧的主页",
   description: "主页",
   lang: 'zh-Hans',
-  head: [['link', { rel: 'icon', href: 'favicon.ico' }]],
-    vite: {
-    publicDir: './public/'
-    },
+  head: [
+    ['link', { rel: 'icon', href: 'favicon.ico' }],
+    ["meta",{name:"msvalidate.01",content:"07971D9A449C8008AADDCBB4BBB1D0B8"}]
+
+  ],
+
   srcDir: "",//等下需要新建一个目录，统一放这里
   // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
   lastUpdated: true, // string | boolean
@@ -65,6 +71,7 @@ export default defineConfig({
       sortFolderTo: "top",
       // 菜单展开功能
       collapsed: false,
+      includeFolderIndexFile: false,
     }),
 
     nav: [
@@ -74,9 +81,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Sorrow-Scarlet' },
-      {
-        icon:'bilibili', link: "https://space.bilibili.com/47130830"
-      }
+      { icon:'bilibili', link: "https://space.bilibili.com/47130830"}
     ],
         footer: {
       message: '许可协议<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io/blob/main/LICENSE">GPL-V3',
