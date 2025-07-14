@@ -29,8 +29,8 @@ export default defineConfig({
   lang: 'zh-Hans',
   head: [
     ['link', { rel: 'icon', href: 'favicon.ico' }],
-    ["meta",{name:"msvalidate.01",content:"07971D9A449C8008AADDCBB4BBB1D0B8"}]
-
+    ["meta",{name:"msvalidate.01",content:"07971D9A449C8008AADDCBB4BBB1D0B8"}],
+    ["meta",{name:"google-site-verification",content:"LXAEuEXO66L0nbuosgR7lg4PTGkDGWLKb6nkeWWkKQo"}]
   ],
 
   srcDir: "",//等下需要新建一个目录，统一放这里
