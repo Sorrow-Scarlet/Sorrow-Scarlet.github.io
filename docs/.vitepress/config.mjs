@@ -9,12 +9,24 @@ export default defineConfig({
     // 图片懒加载
   image: {
     lazyLoading: true },
+    config(md) {
+      md.use(groupIconMdPlugin)
+    }
+  },
+  vite: {
+    plugins: [
+      groupIconVitePlugin()
+    ],
   },
   cleanUrls: true,
   title: "忧的主页",
   description: "主页",
   lang: 'zh-Hans',
-  head: [['link', { rel: 'icon', href: 'favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', href: 'favicon.ico' }],
+    ["meta",{name:"msvalidate.01",content:"07971D9A449C8008AADDCBB4BBB1D0B8"}]
+
+  ],
     vite: {
     publicDir: './public/'
     },

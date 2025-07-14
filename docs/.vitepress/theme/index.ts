@@ -8,7 +8,7 @@ import busuanzi from "busuanzi.pure.js";
 import DataPanel from "./components/DataPanel.vue";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-
+import 'virtual:group-icons.css'
 
 export default {
   extends: DefaultTheme,

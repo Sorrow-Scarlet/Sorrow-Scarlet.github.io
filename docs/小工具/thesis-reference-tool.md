@@ -82,7 +82,6 @@
 :::
 
 <script setup>
-  
 // 复制排序后的参考文献列表到剪贴板
 function copyText() {
   const refOutput = document.getElementById("ref-output");
