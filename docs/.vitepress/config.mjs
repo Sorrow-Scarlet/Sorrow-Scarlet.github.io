@@ -1,23 +1,22 @@
 import { defineConfig } from 'vitepress'
-import { generateSidebar } from 'vitepress-sidebar';
-import { groupIconMdPlugin, groupIconVitePlugin } from 'vitepress-plugin-group-icons'
+import { generateSidebar } from 'vitepress-sidebar'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  //各大语言设置
   markdown:{
     // 代码块行号显示
   lineNumbers: true,
     // 图片懒加载
   image: {
     lazyLoading: true },
-    config(md) {
-      md.use(groupIconMdPlugin)
-    }
+
   },
   vite: {
-    plugins: [
-      groupIconVitePlugin()
-    ],
+    publicDir: './public/'
   },
+  //各大语言设置结束
+
+
   cleanUrls: true,
   title: "忧的主页",
   description: "主页",
@@ -27,9 +26,7 @@ export default defineConfig({
     ["meta",{name:"msvalidate.01",content:"07971D9A449C8008AADDCBB4BBB1D0B8"}]
 
   ],
-    vite: {
-    publicDir: './public/'
-    },
+
   srcDir: "",//等下需要新建一个目录，统一放这里
   // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
   lastUpdated: true, // string | boolean
