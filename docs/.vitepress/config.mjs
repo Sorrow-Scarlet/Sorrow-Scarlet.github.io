@@ -29,8 +29,8 @@ export default defineConfig({
   lang: 'zh-Hans',
   head: [
     ['link', { rel: 'icon', href: 'favicon.ico' }],
-    ["meta",{name:"msvalidate.01",content:"07971D9A449C8008AADDCBB4BBB1D0B8"}]
-
+    ["meta",{name:"msvalidate.01",content:"07971D9A449C8008AADDCBB4BBB1D0B8"}],
+    ["meta",{name:"google-site-verification",content:"LXAEuEXO66L0nbuosgR7lg4PTGkDGWLKb6nkeWWkKQo"}]
   ],
 
   srcDir: "",//等下需要新建一个目录，统一放这里
@@ -89,8 +89,8 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/Sorrow-Scarlet' },
       { icon:'bilibili', link: "https://space.bilibili.com/47130830"}
     ],
-        footer: {
-      message: '许可协议<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io/blob/main/LICENSE">GPL-V3',
+    footer: {
+      message: '<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io">WebContent</a> © 2025 by <a href="https://github.com/Sorrow-Scarlet">幻梦·忧</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>',
       copyright: 'Copyright © 2025 幻梦·忧',
     }
   },
