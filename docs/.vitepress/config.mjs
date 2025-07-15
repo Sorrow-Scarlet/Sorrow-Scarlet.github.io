@@ -60,7 +60,7 @@ export default defineConfig({
       title: "页面未找到",
       quote: "哎呀，您好像迷失在网络的小胡同里啦，别着急，赶紧回头是岸！",
       linkText: "返回主页",
-  },
+    },
     sidebar: generateSidebar({
       // VitePress Sidebar's options here...
           // 侧边栏的根目录，默认为docs
@@ -89,8 +89,8 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/Sorrow-Scarlet' },
       { icon:'bilibili', link: "https://space.bilibili.com/47130830"}
     ],
-        footer: {
-      message: '许可协议<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io/blob/main/LICENSE">GPL-V3',
+    footer: {
+      message: '<a href="https://github.com/Sorrow-Scarlet/Sorrow-Scarlet.github.io">WebContent</a> © 2025 by <a href="https://github.com/Sorrow-Scarlet">幻梦·忧</a> is licensed under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>',
       copyright: 'Copyright © 2025 幻梦·忧',
     }
   },
