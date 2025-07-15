@@ -60,7 +60,7 @@ export default defineConfig({
       title: "页面未找到",
       quote: "哎呀，您好像迷失在网络的小胡同里啦，别着急，赶紧回头是岸！",
       linkText: "返回主页",
-  },
+    },
     sidebar: generateSidebar({
       // VitePress Sidebar's options here...
           // 侧边栏的根目录，默认为docs
