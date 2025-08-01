@@ -83,7 +83,9 @@ export default defineConfig({
 
     nav: [
       { text: '首页', link: '/' },
-      { text: '空调', link: '/新奇小玩应/airconditioner' }
+      { text: '空调', link: '/新奇小玩应/airconditioner' },
+      { text: '踩坑大全', link: '/踩坑大全/index' },
+
     ],
 
     socialLinks: [
