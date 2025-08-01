@@ -33,16 +33,17 @@ export default defineConfig({
     ["meta",{name:"google-site-verification",content:"LXAEuEXO66L0nbuosgR7lg4PTGkDGWLKb6nkeWWkKQo"}]
   ],
 
-  srcDir: "",//等下需要新建一个目录，统一放这里
+
   // 获取每个文件最后一次 git 提交的 UNIX 时间戳(ms)，同时它将以合适的日期格式显示在每一页的底部
   lastUpdated: true, // string | boolean
   ignoreDeadLinks: true, //忽略死链查询，即文档中嵌入的一些链接无法访问也不会导致站点报错
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
 
+    //启用vitepress本身的搜索
     search: 
     {
-      provider: "local", //启用vitepress本身的搜索
+      provider: "local", 
     },
     lastUpdatedText: "最后更新", // string
     externalLinkIcon: true,
@@ -82,7 +83,9 @@ export default defineConfig({
 
     nav: [
       { text: '首页', link: '/' },
-      { text: '空调', link: '/新奇小玩应/airconditioner' }
+      { text: '空调', link: '/新奇小玩应/airconditioner' },
+      { text: '踩坑大全', link: '/踩坑大全/index' },
+
     ],
 
     socialLinks: [
