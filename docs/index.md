@@ -24,15 +24,15 @@ features:
   - icon:
       src: /icons/todo.svg
     title: 待办清单
-    details: 嵌入更多小玩应，更多页面...
+    details: 嵌入更多小玩应，更多页面，更新内容...
   - icon:
       src: /icons/construction.svg
     title: 当前事项
-    details: 完善导航栏，重新安装空调...
+    details: 完善导航栏
   - icon:
       src: /icons/todo-finish.svg
     title: 完成事项
-    details: 文献排序器,完善readme，页脚...
+    details: 重装空调...
   - icon:
       src: /icons/joker.svg
     title: 赛博对联

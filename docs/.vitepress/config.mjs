@@ -3,7 +3,8 @@ import { generateSidebar } from 'vitepress-sidebar'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-
+//添加注释重新生成侧边栏
+ 
 //sitemap
   sitemap: {
     hostname: 'https://sorrow-scarlet.github.io',
