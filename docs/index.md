@@ -14,11 +14,8 @@ hero:
       text: 前往Test页
       link: /测试页面/test
     - theme: alt
-      text: 前往construction
+      text: 前往Construction
       link: /测试页面/construction
-    - theme: alt
-      text: 前往小工具
-      link: /小工具/index
 
 features:
   - icon:
