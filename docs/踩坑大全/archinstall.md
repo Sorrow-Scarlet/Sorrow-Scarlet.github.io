@@ -3,7 +3,7 @@
 在 Windows 系统上的 VMware 虚拟机上安装 ArchLinux
 
 ::: warning 必看
-本篇文章**不能**代替`Arch Wiki`, 建议同时打开 Wiki 备用
+本篇文章**不能**代替[`Arch Wiki`](https://wiki.archlinux.org.cn), 建议同时打开 Wiki 备用
 :::
 
 ## 安装前准备
@@ -21,6 +21,8 @@
 
 ## 安装过程
 
+### 系统安装前
+
 ::: details VMware 设置
 
 1. 打开 VMware Workstation Pro，点击创建新的虚拟机
@@ -33,9 +35,82 @@
 
 :::
 
+:::details 关闭 Hyper-V(建议)
+
+1. 按下`Windows键`, 输入`control`
+2. 在打开的控制面板中,查看方式改为`类别`
+3. 点击`程序`，点击`启用或关闭Windows功能`
+4. 关闭这些项目： `Hyper-V`, `Virtual Machine Platform`, `Windows虚拟机监控程序平台`，`适用于Linux的Windows子系统`，`Windows沙盒`
+5. 确定并重启
+
+:::
+
 ### 系统安装阶段
 
+为了你我的身心健康，使用`archinstall`吧
 
+::: info `archinstall`前的准备
 
+众所周知的原因，我们需要先配备一下镜像源，并关闭 reflector(科学上网用户请忽略这个模块)
+
+> 关闭 reflector
+
+```bash
+systemctl mask reflector.service
+```
+
+> 使用 Vim 配置镜像源
+
+```bash
+vim /etc//pacman.d/mirrorlist
+```
+
+> 将下列内容放在镜像源的最顶部
+
+```Text
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+```
+
+:::
+
+:::warning 警告
+不建议保存`archinstall`设置  
+`archinstall`在文档中表明将使用明文储存账号密码
+:::
+
+:::info `archinstall`,启动！
+
+1. 启动安装脚本
+
+```bash
+archinstall
+```
+
+2. 前面的都别动，来到 Disk Partitioning，来分区
+
+```Archinstall
+Disk Configuration-> Partitioning->
+Use a best-effort default partition layout->
+btrfs-> Yes-> Use Compression-> back
+
+```
+
+3. Bootloader 改为 Grub
+4. 自行配置 Hostname
+5. 自行添加`sudo用户`和密码
+6. Profile 选择自己喜欢的桌面环境
+7. Audio 选择 pipewire(新电脑建议使用这个)
+8. Network Configuration 选择 `Copy ISO network...`
+9. 没别的问题其他维持默认即可，选择`install`
+
+漫长的安装等待时间...
+
+:::
+
+> 更新镜像源
+
+```bash
+pacman -Syyu
+```
 
 ##
