@@ -4,7 +4,6 @@ import { generateSidebar } from "vitepress-sidebar";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   //添加注释重新生成侧边栏
-
   //sitemap
   sitemap: {
     hostname: "https://sorrow-scarlet.github.io",
@@ -91,11 +90,12 @@ export default defineConfig({
 
     nav: [
       { text: "首页", link: "/" },
-      { text: "空调", link: "/新奇小玩应/airconditioner" },
-      { text: "小工具", link: "/小工具/index" },
-      { text: "踩坑大全", link: "/踩坑大全/index" },
+      { text: "空调", link: "/06-新奇小玩应/airconditioner" },
+      { text: "小工具", link: "/04-小工具/index" },
+      { text: "踩坑大全", link: "/01-踩坑大全/index" },
     ],
 
+    
     socialLinks: [
       { icon: "github", link: "https://github.com/Sorrow-Scarlet" },
       { icon: "bilibili", link: "https://space.bilibili.com/47130830" },
