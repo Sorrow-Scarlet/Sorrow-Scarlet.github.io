@@ -69,6 +69,14 @@ vim /etc//pacman.d/mirrorlist
 
 ```Text
 Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.jlu.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.cqu.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.xjtu.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.shanghaitech.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.nju.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.hit.edu.cn/archlinux/$repo/os/$arch
+
 ```
 
 :::
@@ -105,12 +113,26 @@ btrfs-> Yes-> Use Compression-> back
 
 漫长的安装等待时间...
 
-:::
+然后你应该看到这样一句话：
 
-> 更新镜像源
-
-```bash
-pacman -Syyu
+```Text
+Would you like to chroot into the newly created installation
+and perform post-installation configuration?
 ```
 
-##
+选 no，然后输入 reboot
+
+:::
+
+:::details 安装 gnome 桌面（可选）
+如果你前面没安装任何桌面环境，来看吧
+输入
+
+```bash
+sudo pacman -Syyu
+sudo pacman -S gnome-desktop gdm ghostty gnome-control-center flatpak
+```
+
+:::
+
+好了，安装完了，你的arch活了，翻[`Arch Wiki`](https://wiki.archlinux.org.cn)去吧
