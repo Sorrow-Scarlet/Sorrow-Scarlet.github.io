@@ -96,7 +96,7 @@ archinstall
 
 2. 前面的都别动，来到 Disk Partitioning，来分区
 
-```Archinstall
+```txt
 Disk Configuration-> Partitioning->
 Use a best-effort default partition layout->
 btrfs-> Yes-> Use Compression-> back
@@ -135,4 +135,4 @@ sudo pacman -S gnome-desktop gdm ghostty gnome-control-center flatpak
 
 :::
 
-好了，安装完了，你的arch活了，翻[`Arch Wiki`](https://wiki.archlinux.org.cn)去吧
+好了，安装完了，你的 arch 活了，翻[`Arch Wiki`](https://wiki.archlinux.org.cn)去吧

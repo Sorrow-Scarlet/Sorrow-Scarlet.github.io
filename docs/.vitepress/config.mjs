@@ -95,7 +95,6 @@ export default defineConfig({
       { text: "踩坑大全", link: "/01-踩坑大全/index" },
     ],
 
-    
     socialLinks: [
       { icon: "github", link: "https://github.com/Sorrow-Scarlet" },
       { icon: "bilibili", link: "https://space.bilibili.com/47130830" },

@@ -12,31 +12,31 @@ hero:
   actions:
     - theme: brand
       text: 前往Test页
-      link: /测试页面/test
+      link: /02-测试页面/test
     - theme: alt
       text: 前往construction
-      link: /测试页面/construction
+      link: /02-测试页面/construction
     - theme: alt
       text: 前往小工具
-      link: /小工具/index
+      link: /04-小工具/index
 
 features:
-  - icon: 
+  - icon:
       src: /icons/todo.svg
     title: 待办清单
     details: ...
-  - icon: 
+  - icon:
       src: /icons/construction.svg
     title: 当前事项
     details: 完善网站内容，完善主页，...
-  - icon: 
+  - icon:
       src: /icons/todo-finish.svg
     title: 完成事项
     details: ...
-  - icon: 
+  - icon:
       src: /icons/joker.svg
     title: 赛博对联
     details: 优化网站流畅度，提高网站稳定性。
-
 ---
+
 <DataPanel />
